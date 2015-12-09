@@ -2,11 +2,11 @@
 
 This project contains an extension feature for the injection of arbitrary properties
 into Jersey 2.x resources and providers. Properties can be obtained from
-properties files or any other arbitrary source of properties.
+properties files or any other arbitrary source of key/value pairs.
 
-This module had been built with Jersey 2.8, and tested with the latest (as
+This module has been built with Jersey 2.8, and tested with the latest (as
 of this writing) 2.22.1. This means that it will not work for 2.6
-(as it used features not introduced until 2.8), for those needed to stick with Java 6.
+(as it uses features not introduced until 2.8), for those needed to stick with Java 6.
 
 ## Maven Dependency (currently not available)
 
@@ -22,8 +22,8 @@ of this writing) 2.22.1. This means that it will not work for 2.6
 
 ### Basic Configuration
 
-To enable this feature, you need to register the `JerseyPropertiesFeature` with the 
-Jersey application. You have the option to register it in a web.xml or in you 
+To enable this feature, you need to register the [`JerseyPropertiesFeature`][1] with the 
+Jersey application. You have the option to register it in a web.xml or in your 
 `Application` subclass (generally in a Jersey application, it would be a 
 `ResourceConfig`).
 
@@ -64,7 +64,7 @@ or in a web.xml
 ```xml
 <init-param>
     <param-name>com.github.psamsotha.jersey.properties.resourcePath</param-name>
-    <param-value>app.propertie</param-value>
+    <param-value>app.properties</param-value>
 <init-param>
 ```
 
@@ -96,7 +96,7 @@ public class SomeResource {
 
 One interesting thing to note is that this feature makes use of the functionality 
 provided for the injection of parameters like `@PathParam` and `@QueryParam`.
-As such, the String property values have the ability to be converted automatically
+As such, the string property values have the ability to be converted automatically
 to other types. For example if you have
 
     int.prop=12345
@@ -133,7 +133,7 @@ public class MorePropertiesProvider implements PropertiesProvider {
 }
 ```
 
-Then you will need to register the feature by constructing it will the new 
+Then you will need to register the feature by constructing it with the new 
 properties provider (the constructor takes a varargs).
 
 ```java
@@ -195,7 +195,7 @@ in the internal map and will return the associated value.
 The internal map is loaded by simply iterating through `Locale.getAvailableLocales()`
 and crate a `ResourceBundle` for each `Locale`. This means that if the locale
 is not supported by an associated properties file, it will use the default bundle.
-Likewise, if the client request a language for which there was no properties
+Likewise, if the client requests a language for which there was no properties
 file, the client will be returned the default message.
 
 To register this feature, you should enable through the following property
@@ -205,12 +205,13 @@ public AppConfig() {
     register(JerseyPropertiesFeature.class);
     property(JerseyPropertiesFeature.ENABLE_I18N, true);
     property(JerseyPropertiesFeature.RESOURCE_BUNDLE, "Messages");
-}```
+}
+```
 
 With this feature enabled, all other configurations will be disabled. So you 
 cannot use a the default properties provider that will look for a specified
 properties file. Also you cannot register other `PropertiesProvider`s. 
-You can check out the `JerseyPropertiesFeatureI18NTest` for a complete
+You can check out the [`JerseyPropertiesFeatureI18NTest`][2] for a complete
 runnable test using this feature.
 
 One of the limitations you will find is that you cannot inject the properties
@@ -221,3 +222,6 @@ Like I said, the i18n feature is purely experimental and disabled by default.
 If you have use for it, and would like to see any improvements, feel free to 
 contact me.
 
+[1]: https://github.com/psamsotha/jersey-properties/blob/master/src/main/java/com/github/psamsotha/jersey/properties/JerseyPropertiesFeature.java
+
+[2]: https://github.com/psamsotha/jersey-properties/blob/master/src/test/java/com/github/psamsotha/jersey/properties/JerseyPropertiesFeatureI18NTest.java
