@@ -29,6 +29,13 @@
         </developer>
     </developers>
     
+    <scm>
+        <connection>scm:git:git@github.com:psamsotha/jersey-properties.git</connection>
+        <developerConnection>scm:git:git@github.com:psamsotha/jersey-properties.git</developerConnection>
+        <url>git@github.com:psamsotha/jersey-properties.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    
     <dependencies>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -54,6 +61,11 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
             </plugin>
         </plugins>
     </build>

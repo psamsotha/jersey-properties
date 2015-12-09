@@ -57,8 +57,7 @@ public class JerseyPropertiesFeatureTest extends JerseyTest {
         @GET
         public String get(@Prop(METHOD_PARAM_PROP_KEY) String methodProp) {
             return String.format(MESSAGE_FORMAT, fieldProp, constructorProp, methodProp, moxyProp);
-        }
-        
+        }  
     }
 
     

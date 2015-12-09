@@ -6,7 +6,6 @@
 package com.github.psamsotha.jersey.properties;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -18,7 +17,7 @@ import org.glassfish.jersey.server.model.Parameter;
  *
  * @author PaulSamsotha
  */
-public class DefaultConfigProperties extends ConfigProperties<String, String> {
+class DefaultConfigProperties extends ConfigProperties<String, String> {
     
     private final Map<Parameter, Object> cachedProperties = new ConcurrentHashMap<Parameter, Object>();
     
