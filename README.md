@@ -14,7 +14,7 @@ of this writing) 2.22.1. This means that it will not work for 2.6
 <dependency>
     <groupId>com.github.psamsotha</groupId>
     <artifactId>jersey-properties</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.0</version>
 <dependency>
 ```
 
