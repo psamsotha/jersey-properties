@@ -52,10 +52,10 @@ final class PropertiesValueFactoryProvider extends AbstractValueFactoryProvider 
         private final Parameter parameter;
         private final boolean i18nEnabled;
         
-        public PropertyFactory(MultivaluedParameterExtractor<?> extractor, Parameter parameter, boolean i18Enabled) {
+        public PropertyFactory(MultivaluedParameterExtractor<?> extractor, Parameter parameter, boolean i18nEnabled) {
             this.extractor = extractor;
             this.parameter = parameter;
-            this.i18nEnabled = i18Enabled;
+            this.i18nEnabled = i18nEnabled;
         }
         
         @Inject 
