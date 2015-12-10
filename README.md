@@ -8,7 +8,7 @@ This module has been built with Jersey 2.8, and tested with the latest (as
 of this writing) 2.22.1. This means that it will not work for 2.6
 (as it uses features not introduced until 2.8), for those needed to stick with Java 6.
 
-## Maven Dependency (currently not available)
+## Maven Dependency 
 
 ```xml
 <dependency>
