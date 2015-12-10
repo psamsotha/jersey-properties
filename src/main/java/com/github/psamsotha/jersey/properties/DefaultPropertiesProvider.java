@@ -57,6 +57,14 @@ class DefaultPropertiesProvider implements PropertiesProvider {
         } catch (IOException ex) {
             LOGGER.log(Level.WARNING, "Error loading Properties.", ex);
             // does not fail.
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException ex) {
+                    throw new RuntimeException("Error closing stream.", ex);
+                }
+            } 
         }
         return properties;
     }

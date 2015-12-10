@@ -6,7 +6,7 @@ properties files or any other arbitrary source of key/value pairs.
 
 This module has been built with Jersey 2.8, and tested with the latest (as
 of this writing) 2.22.1. This means that it will not work for 2.6
-(as it uses features not introduced until 2.8), for those needed to stick with Java 6.
+(as it uses features not introduced until 2.8), for those needing to stick with Java 6.
 
 ## Maven Dependency 
 
@@ -14,7 +14,7 @@ of this writing) 2.22.1. This means that it will not work for 2.6
 <dependency>
     <groupId>com.github.psamsotha</groupId>
     <artifactId>jersey-properties</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 <dependency>
 ```
 
@@ -105,7 +105,7 @@ then you can inject the property value as an `int` or `Integer`
 
 ```java
 @GET
-public String get(@Prop("some.prop") int someParamProp) {
+public String get(@Prop("int.prop") int someParamProp) {
     ...
 }
 ```
@@ -113,7 +113,7 @@ public String get(@Prop("some.prop") int someParamProp) {
 ### Custom `PropertiesProvider`
 
 Aside from using the basic properties configuration, you can provide an 
-implementation of a `PropertiesProvider`, where you will need implement
+implementation of a `PropertiesProvider`, where you will need to implement
 the `getProperties()` method. This allows for properties to be added 
 in any number of arbitrary ways. For example
 
@@ -218,7 +218,7 @@ One of the limitations you will find is that you cannot inject the properties
 into singletons, that means singleton resource classes, and providers like
 `ContainerRequestFilter`. The reason is that the locale is determined per request.
 
-Like I said, the i18n feature is purely experimental and disabled by default.
+As mentioned previously, the i18n feature is purely experimental and disabled by default.
 If you have use for it, and would like to see any improvements, feel free to 
 contact me.
 
