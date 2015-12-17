@@ -1,5 +1,16 @@
 ## Overview
 
+* [Description](#description)
+* [Maven Dependency](#dependency)
+* [Usage](#usage)
+    * [Basic Configuration](#basicConfig)
+    * [Custom `PropertiesProvider`](#customProvider)
+    * [Internationalization (i18n) support](#i18n)
+* [Change Log](#changeLog)
+
+<a name="description"></a>
+## Description
+
 This project contains an extension feature for the injection of arbitrary properties
 into Jersey 2.x resources and providers. Properties can be obtained from
 properties files or any other arbitrary source of key/value pairs.
@@ -8,18 +19,21 @@ This module has been built with Jersey 2.8, and tested with the latest (as
 of this writing) 2.22.1. This means that it will not work for 2.6
 (as it uses features not introduced until 2.8), for those needing to stick with Java 6.
 
+<a name="dependency"></a>
 ## Maven Dependency 
 
 ```xml
 <dependency>
     <groupId>com.github.psamsotha</groupId>
     <artifactId>jersey-properties</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 <dependency>
 ```
 
+<a name="usage"></a>
 ## Usage
 
+<a name="basicConfig"></a>
 ### Basic Configuration
 
 To enable this feature, you need to register the [`JerseyPropertiesFeature`][1] with the 
@@ -110,6 +124,7 @@ public String get(@Prop("int.prop") int someParamProp) {
 }
 ```
 
+<a name="customProvider"></a>
 ### Custom `PropertiesProvider`
 
 Aside from using the basic properties configuration, you can provide an 
@@ -177,6 +192,7 @@ public class PropertiesFeature implements Feature {
 If you have package scanning enabled, then the class should automatically be
 picked up and registered through the `@Provider` annotation. 
 
+<a name="i18n"></a>
 ### Internationalization (i18n) support
 
 This feature is purely experimental. It is turned off by default. 
@@ -222,6 +238,18 @@ As mentioned previously, the i18n feature is purely experimental and disabled by
 If you have use for it, and would like to see any improvements, feel free to 
 contact me.
 
+<a name="changeLog"></a>
+Change Log
+---
+
+###0.1.1 - 2015-12-17
+
+* Fixed issue [InputStream not closed in DefaultPropertiesProvider ][3]
+
+
+
 [1]: https://github.com/psamsotha/jersey-properties/blob/master/src/main/java/com/github/psamsotha/jersey/properties/JerseyPropertiesFeature.java
 
 [2]: https://github.com/psamsotha/jersey-properties/blob/master/src/test/java/com/github/psamsotha/jersey/properties/JerseyPropertiesFeatureI18NTest.java
+
+[3]: https://github.com/psamsotha/jersey-properties/issues/1
