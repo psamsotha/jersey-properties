@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.psamsotha</groupId>
     <artifactId>jersey-properties</artifactId>
-    <version>0.1.1-SNAPSHOT</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
     
     <name>${project.groupId}:${project.artifactId}</name>
@@ -55,7 +55,7 @@
         <connection>scm:git:git@github.com:psamsotha/jersey-properties.git</connection>
         <developerConnection>scm:git:git@github.com:psamsotha/jersey-properties.git</developerConnection>
         <url>git@github.com:psamsotha/jersey-properties.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.1.1</tag>
     </scm>
     
     <dependencies>
